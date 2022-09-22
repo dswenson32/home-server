@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nginx: 
+  nginx:
     image: nginx:latest
     container_name: production_nginx
     volumes:
@@ -8,11 +8,21 @@ services:
     ports:
       - 80:80
       - 443:443
-      
   chores_app:
     image: chore-app:2022-08-28
     container_name: chores_app
     volumes:
       -  ~/docker/docker_data/chores_app_data:/db
+    ports:
+      - 5000:5000
     expose:
       - "5000"
+  recipes_app:
+    image: recipe-app:2022-08-29
+    container_name: recipes_app
+    volumes:
+      - ~/docker/docker_data/recipe_app_data:/recipes
+    ports:
+      - 5001:5001
+    expose:
+      - "5001"
