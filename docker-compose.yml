@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx: 
+    image: nginx:latest
+    container_name: production_nginx
+    volumes:
+      - ~/docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 443:443
+      
+  chores_app:
+    image: chore-app:2022-08-28
+    container_name: chores_app
+    volumes:
+      -  ~/docker/docker_data/chores_app_data:/db
+    expose:
+      - "5000"
