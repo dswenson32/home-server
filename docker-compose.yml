@@ -9,7 +9,7 @@ services:
       - 80:80
       - 443:443
   chores_app:
-    image: chore-app:2022-08-28
+    image: chores-app:2022-09-26
     container_name: chores_app
     volumes:
       -  ~/docker/docker_data/chores_app_data:/db
@@ -18,7 +18,7 @@ services:
     expose:
       - "5000"
   recipes_app:
-    image: recipe-app:2022-08-29
+    image: recipes-app:2022-09-26
     container_name: recipes_app
     volumes:
       - ~/docker/docker_data/recipe_app_data:/recipes
